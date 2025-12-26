@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Management — Demo</title>
+  <style>
+    :root{
+      --bg:#f6f9fb;
+      --panel:#ffffff;
+      --muted:#6b7785;
+      --primary:#2b3e50;
+      --accent:#2f8fdb;
+      --table-head:#2d3d49;
+      --soft-border:#e6eef4;
+      --green:#2db34a;
+      --red:#e14b4b;
+      --orange:#f59e0b;
+      --blue:#0b2545;
+      --pill-bg:#eef6fb;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--primary)}
+    .container{max-width:1200px;margin:44px auto;padding:28px}
+
+    
+    .hero{text-align:center;padding:28px 8px 22px}
+    .hero h1{font-size:48px;margin:0;color:var(--blue);letter-spacing:1px}
+    .hero p{color:var(--muted);margin-top:10px;font-size:16px}
+
+    
+    .controls{display:flex;gap:12px;align-items:center;justify-content:space-between;background:var(--panel);padding:18px;border-radius:10px;border:1px solid var(--soft-border);box-shadow:0 2px 0 rgba(15,23,42,0.02)}
+    .controls-left{display:flex;gap:12px;align-items:center}
+    .search{display:flex;align-items:center;background:var(--pill-bg);padding:10px 14px;border-radius:999px;border:1px solid rgba(45,61,73,0.06);min-width:320px}
+    .search input{border:0;background:transparent;outline:none;font-size:15px;color:var(--primary);width:100%}
+    .filter{display:flex;gap:10px;align-items:center}
+    .filter select{padding:9px 12px;border-radius:999px;border:1px solid var(--soft-border);background:white;min-width:140px}
+    .controls-right{display:flex;gap:12px;align-items:center}
+    .btn{padding:10px 14px;border-radius:999px;border:1px solid var(--soft-border);background:white;font-size:14px;cursor:pointer}
+    .btn.primary{background:var(--blue);color:white;border:0;box-shadow:0 6px 18px rgba(11,37,69,0.08)}
+    .btn.icon{display:inline-flex;align-items:center;gap:8px}
+
+    
+    .card{margin-top:18px;background:var(--panel);border-radius:10px;padding:8px;border:1px solid var(--soft-border);overflow:hidden}
+    table{width:100%;border-collapse:collapse;font-size:15px}
+    thead{background:linear-gradient(180deg,#2f4050 0%, #2b3846 100%);color:white}
+    thead th{padding:14px 12px;text-align:left;font-weight:600;font-size:14px}
+    tbody tr{background:linear-gradient(180deg, rgba(245,251,255,1) 0%, rgba(255,255,255,1) 100%)}
+    tbody tr:not(:last-child){border-bottom:1px solid var(--soft-border)}
+    td{padding:14px 12px;vertical-align:middle;color:#29414f}
+
+    .user{display:flex;align-items:center;gap:12px}
+    .avatar{width:36px;height:36px;border-radius:50%;background:#d9eaf6;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blue);overflow:hidden}
+    .username{color:var(--muted);font-size:13px}
+
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px;color:white;font-weight:600}
+    .pill.active{background:var(--green)}
+    .pill.inactive{background:#9aa6b3}
+    .pill.banned{background:var(--red)}
+    .pill.pending{background:#07102b}
+    .pill.suspended{background:var(--orange)}
+
+    .actions button{border:0;background:transparent;cursor:pointer;font-size:18px;margin-left:6px}
+    .actions button.delete{color:crimson}
+
+    .muted{color:var(--muted);font-size:13px}
+    .small{font-size:13px}
+
+    @media (max-width:980px){.hero h1{font-size:36px}.search{min-width:220px}}
+    @media (max-width:740px){.controls{flex-direction:column;align-items:stretch}.controls-right{justify-content:space-between}}
+
+    .reference{display:block;margin-top:12px;text-align:center}
+    .reference img{max-width:200px;border:1px solid var(--soft-border);border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>User Management</h1>
+      <p>Manage all users in one place. Control access, assign roles, and monitor activity across your platform.</p>
+    </div>
+
+    <div class="controls">
+      <div class="controls-left">
+        <div class="search" role="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.7;margin-right:8px"><path d="M21 21l-4.35-4.35" stroke="#61707a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="#61707a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input placeholder="Search" />
+        </div>
+
+        <div class="filter">
+          <select aria-label="Role">
+            <option>Role — All</option>
+            <option>Admin</option>
+            <option>Moderator</option>
+            <option>User</option>
+            <option>Guest</option>
+          </select>
+          <select aria-label="Status">
+            <option>Status — All</option>
+            <option>Active</option>
+            <option>Inactive</option>
+            <option>Banned</option>
+            <option>Suspended</option>
+          </select>
+          <input type="date" title="date" style="padding:9px 12px;border-radius:999px;border:1px solid var(--soft-border);background:white" />
+        </div>
+      </div>
+
+      <div class="controls-right">
+        <button class="btn" title="Export">Export ⬆</button>
+        <button class="btn primary icon">+ Add User</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36px"><input type="checkbox" /></th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Status</th>
+            <th>Role</th>
+            <th style="width:120px;text-align:right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>
+              <div class="user">
+                <div class="avatar">JK</div>
+                <div>
+                  <div style="font-weight:600">John Smith</div>
+                  <div class="username">Frontend Engineer</div>
+                </div>
+              </div>
+            </td>
+            <td class="muted">john.smith@gmail.com</td>
+            <td class="muted">jonny77</td>
+            <td><span class="pill active">Active</span></td>
+            <td class="small">Admin</td>
+            <td class="actions" style="text-align:right">
+              <button title="Edit">✏</button>
+              <button title="Delete" class="delete">🗑</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>
+              <div class="user">
+                <div class="avatar">OB</div>
+                <div>
+                  <div style="font-weight:600">Olivia Bennett</div>
+                  <div class="username">Product Designer</div>
+                </div>
+              </div>
+            </td>
+            <td class="muted">ollyben@gmail.com</td>
+            <td class="muted">olly659</td>
+            <td><span class="pill inactive">Inactive</span></td>
+            <td class="small">User</td>
+            <td class="actions" style="text-align:right">
+              <button>✏</button>
+              <button class="delete">🗑</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>
+              <div class="user">
+                <div class="avatar">DW</div>
+                <div>
+                  <div style="font-weight:600">Daniel Warren</div>
+                  <div class="username">Backend Dev</div>
+                </div>
+              </div>
+            </td>
+            <td class="muted">dwarren3@gmail.com</td>
+            <td class="muted">dwarren3</td>
+            <td><span class="pill banned">Banned</span></td>
+            <td class="small">User</td>
+            <td class="actions" style="text-align:right">
+              <button>✏</button>
+              <button class="delete">🗑</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>
+              <div class="user">
+                <div class="avatar">CH</div>
+                <div>
+                  <div style="font-weight:600">Chloe Hayes</div>
+                  <div class="username">Marketing</div>
+                </div>
+              </div>
+            </td>
+            <td class="muted">chloehye@gmail.com</td>
+            <td class="muted">chloehh</td>
+            <td><span class="pill pending">Pending</span></td>
+            <td class="small">Guest</td>
+            <td class="actions" style="text-align:right">
+              <button>✏</button>
+              <button class="delete">🗑</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox"></td>
+            <td>
+              <div class="user">
+                <div class="avatar">MR</div>
+                <div>
+                  <div style="font-weight:600">Marcus Reed</div>
+                  <div class="username">Support</div>
+                </div>
+              </div>
+            </td>
+            <td class="muted">reeds777@gmail.com</td>
+            <td class="muted">reeds7</td>
+            <td><span class="pill suspended">Suspended</span></td>
+            <td class="small">User</td>
+            <td class="actions" style="text-align:right">
+              <button>✏</button>
+              <button class="delete">🗑</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    
+
+  </div>
+</body>
+</html>

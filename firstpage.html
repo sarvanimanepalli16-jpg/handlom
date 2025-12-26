@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handloom Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #f8f3ec;
+      font-family: 'Inter', sans-serif;
+      color: #2e2e2e;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #faf6f0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+    }
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 80px 60px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      margin: 0;
+      color: #1b1e24;
+    }
+    .hero p {
+      margin: 20px 0 40px;
+      font-size: 20px;
+      color: #4b4b4b;
+    }
+    .btn {
+      background: #d5b48a;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #d6a66c;
+    }
+    .hero img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px 60px;
+    }
+    .role-box {
+      background: #faf6f0;
+      border-radius: 14px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .role-box:hover {
+      transform: translateY(-5px);
+    }
+    .role-box img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+    .role-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin: 0;
+    }
+    .role-box a{
+        color: #0a0a0a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"> PAVORA</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="producetlist.html">Products</a>
+      <a href="contactus.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>HANDLOOM<br>PRODUCTS</h1>
+      <p>Discover exquisite handwoven textiles</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+    <img src="image.png" alt="Handloom Fabric" />
+  </section>
+
+  <section class="roles">
+    <div class="role-box">
+      <img src="image copy.png" alt="Seller" />
+      <h3> <a href="sellerlogin.html">SELLER</a></h3>
+    </div>
+    <div class="role-box">
+      <img src="https://img.icons8.com/ios/100/795548/handshake.png" alt="Buyer" />
+      <h3> <a href="Buyer.html">BUYER</a></h3>
+    </div>
+    <div class="role-box">
+      <img src="https://img.icons8.com/ios/100/795548/admin-settings-male.png" alt="Admin" />
+      <h3> <a href="Adminlogin.html">ADMIN</a></h3>
+    </div>
+  </section>
+
+</body>
+</html>

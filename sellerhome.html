@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Home</title>
+    <link rel="stylesheet" href="seller-home.css">
+    <style>
+ body {
+    margin: 0;
+    background: #fff7e8;
+    font-family: Georgia, serif;
+}
+
+header {
+    background: #e6c8a3;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    color: #222f3e;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #ffffffd0;
+    padding: 25px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #222f3e;
+    box-shadow: 0px 2px 10px #e6d5be;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 12px #d8c3a8;
+}
+
+.icon {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+
+    .icon {
+        width: 55px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Seller Home</h2>
+</header>
+
+<div class="container">
+
+    <div class="grid">
+
+        <a href="sellerprofile.html" class="card">
+            <h3>Seller Profile</h3>
+            <p>Manage your shop and personal details</p>
+        </a>
+
+        <a href="sleerpage.html" class="card">
+            <h3>Upload Product</h3>
+            <p>Add new products to your store</p>
+        </a>
+
+        <a href="producetlist.html" class="card">
+            <h3>Your Products</h3>
+            <p>View, edit or delete products</p>
+        </a>
+
+        <a href="orders.html" class="card">
+            <h3>Orders</h3>
+            <p>Check customer orders</p>
+        </a>
+
+        <a href="earrnings.html" class="card">
+            <h3>Earnings</h3>
+            <p>Track your revenue and payouts</p>
+        </a>
+
+        <a href="dashbord.html" class="card">
+            <h3>Dashboard</h3>
+            <p>See analytics & performance reports</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

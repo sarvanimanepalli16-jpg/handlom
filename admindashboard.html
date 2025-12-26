@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handloom Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f6f2e9;
+            color: #333;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid #e5decf;
+            padding: 20px;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: #5d4a2f;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #5d4a2f;
+            font-weight: 500;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #e8dfcf;
+        }
+
+        .main {
+            margin-left: 260px;
+            padding: 30px 40px;
+        }
+
+        .header {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #5d4a2f;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #5d4a2f;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        table th, table td {
+            padding: 14px;
+            border-bottom: 1px solid #eee3d4;
+            text-align: left;
+        }
+
+        table th {
+            background: #f2ebe2;
+            color: #5d4a2f;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a class="active" href="#">Dashboard</a>
+        <a href="manageusers.html">Manage Users</a>
+        <a href="managesellers.html">Manage sellers</a>
+        <a href="adminproduct.html">Products</a>
+        <a href="orders.html">Orders</a>
+        <a href="Payments.html">Payments</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="reports.html">Reports</a>
+        <a href="seetings.html">Settings</a>
+    </div>
+
+    
+    <div class="main">
+        <div class="header">Welcome, Admin</div>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Total Sellers</h3>
+                <p>120</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Buyers</h3>
+                <p>850</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Products</h3>
+                <p>340</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending Orders</h3>
+                <p>18</p>
+            </div>
+        </div>
+
+        <h2 style="font-family:'Playfair Display', serif; margin-top:40px; color:#5d4a2f;">
+            Recent Seller Registrations
+        </h2>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Store</th>
+                <th>Status</th>
+                <th>Joined</th>
+            </tr>
+            <tr>
+                <td>Lakshmi Menon</td>
+                <td>Royal Looms</td>
+                <td>Approved</td>
+                <td>12 Jan 2025</td>
+            </tr>
+            <tr>
+                <td>Ravi Kumar</td>
+                <td>Thread Heritage</td>
+                <td>Pending</td>
+                <td>15 Jan 2025</td>
+            </tr>
+        </table>
+
+    </div>
+    
+    <script>
+        function foo(){
+            let x=document.getElementById("username").value;
+            let y=document.getElementById("password").value;
+            let h1=document.getElementById("login");
+            if(x=="KLU"&&y=="KLU@123"){
+                h1.textContent="loginsuccess";
+            }
+            else{
+                h1.textContent="loginfailed";
+            }
+        }
+    </script>
+    
+
+</body>
+</html>

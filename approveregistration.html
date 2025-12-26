@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Registrations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f6f2e9;
+            color: #333;
+        }
+        .main {
+            padding: 40px;
+            margin-left: 280px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #5d4a2f;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        table th {
+            background-color: #f2ebe2;
+            padding: 14px;
+            color: #5d4a2f;
+            text-align: left;
+        }
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee3d4;
+        }
+        .approve-btn {
+            background: #4f8d4b;
+            padding: 8px 14px;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .reject-btn {
+            background: #b85c5c;
+            padding: 8px 14px;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+
+    <h1>Approve Registrations</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Submitted On</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr>
+            <td>Lakshmi Menon</td>
+            <td>lakshmi@royal.com</td>
+            <td>Seller</td>
+            <td>12 Jan 2025</td>
+            <td>
+                <button class="approve-btn">Approve</button>
+                <button class="reject-btn">Reject</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Harish N</td>
+            <td>harish@weaves.com</td>
+            <td>Seller</td>
+            <td>15 Jan 2025</td>
+            <td>
+                <button class="approve-btn">Approve</button>
+                <button class="reject-btn">Reject</button>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>

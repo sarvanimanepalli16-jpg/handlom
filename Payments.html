@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin - Payments</title>
+<link rel="stylesheet" href="admin.css">
+<style>
+    body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #fff7e8;
+}
+
+header {
+    background: #deb887;
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+table th, table td {
+    border: 1px solid #d4c4a8;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background: #e9d5b4;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    background: #c89b6d;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #a8794f;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #d4c4a8;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #dbc6a8;
+}
+
+</style>
+</head>
+
+<body>
+<header>Seller Payments</header>
+<div class="container">
+
+<table>
+<tr>
+    <th>Payout ID</th>
+    <th>Seller</th>
+    <th>Amount</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+<tr>
+    <td>3001</td>
+    <td>Seller A</td>
+    <td>₹1500</td>
+    <td>Pending</td>
+    <td><button class="btn">Release</button></td>
+</tr>
+
+</table>
+
+</div>
+</body>
+</html>

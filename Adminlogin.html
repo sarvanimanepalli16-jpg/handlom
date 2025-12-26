@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f5f1e6;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-box {
+            width: 360px;
+            padding: 30px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: #5d4a2f;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 8px;
+            border: 1px solid #cbbfae;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #5d4a2f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #7a6240;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="login-box">
+        <h2>Admin Login</h2>
+
+        <input type="email" id="adminEmail" placeholder="Enter Admin Email">
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+
+        <button onclick="adminLogin()">Login</button>
+
+        <p id="errorMsg" class="error"></p>
+    </div>
+</div>
+
+<script>
+    
+    const correctEmail = "saheth@gmail.com";
+    const correctPassword = "shp@123";
+
+    function adminLogin() {
+        const email = document.getElementById("adminEmail").value;
+        const password = document.getElementById("adminPassword").value;
+        const errorMsg = document.getElementById("errorMsg");
+
+        if (email === correctEmail && password === correctPassword) {
+            errorMsg.textContent = "";
+            window.location.href = "admindashboard.html"; 
+        } else {
+            errorMsg.textContent = "Incorrect Email or Password!";
+        }
+    }
+</script>
+
+</body>
+</html>

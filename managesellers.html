@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manage Sellers</title>
+
+  <!-- Optional: load a clean web font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-verylight: #f3f8fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0f172a;
+      --primary: #0b63a5;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --soft: #eef6fa;
+      --radius: 14px;
+      --shadow: 0 8px 30px rgba(12,34,52,0.06);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #eef6fb 0%, var(--bg-verylight) 100%);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 28px;
+    }
+
+    /* Heading */
+    .heading{
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .heading h1{
+      margin:0;
+      font-size:36px;
+      letter-spacing:0.2px;
+      font-weight:700;
+      color:var(--accent);
+    }
+    .heading p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    /* Card */
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(14,34,50,0.04);
+    }
+
+    /* Controls row */
+    .controls{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+
+    .search {
+      flex:1 1 320px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:#f8fafc;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(14,34,50,0.04);
+    }
+    .search input{
+      border:0;
+      outline:0;
+      background:transparent;
+      width:100%;
+      font-size:14px;
+      color:var(--accent);
+    }
+
+    .controls .select, .controls .btn, .controls .btn-primary{
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid rgba(14,34,50,0.04);
+      background: #fff;
+      font-size:14px;
+    }
+    .controls .select{
+      min-width:140px;
+    }
+    .btn{cursor:pointer}
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 16px;
+      box-shadow: 0 6px 18px rgba(12,34,52,0.06);
+    }
+
+    /* Table */
+    .table-wrap{
+      overflow:auto;
+      border-radius:12px;
+      margin-top:8px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:780px;
+      font-size:14px;
+    }
+    thead th{
+      text-align:left;
+      padding:16px 14px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      border-bottom:1px solid #eef3f7;
+    }
+    tbody td{
+      padding:14px;
+      vertical-align:middle;
+      border-bottom:1px solid #f3f6f8;
+    }
+
+    /* Seller cell */
+    .seller-cell{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .avatar{
+      width:46px;
+      height:46px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#0b1220;
+      background:linear-gradient(135deg,#dbeafe,#bfdbfe);
+      flex-shrink:0;
+    }
+    .meta .name{
+      font-weight:600;
+      color:var(--accent);
+    }
+    .meta .role{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:500;
+    }
+
+    /* badges */
+    .badge{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+    }
+    .badge.active{background:rgba(16,185,129,0.12);color:var(--success)}
+    .badge.new{background:rgba(6,182,129,0.08);color:#0aa16a}
+    .badge.pending{background:rgba(245,158,11,0.12);color:var(--warning)}
+    .badge.suspended{background:rgba(254,226,226,0.85);color:var(--danger)}
+    .badge.banned{background:rgba(15,34,50,0.9);color:#fff}
+    .badge.inactive{background:#efeff3;color:#475569}
+
+    /* actions icons */
+    .actions{
+      display:flex;
+      gap:8px;
+      justify-content:flex-end;
+    }
+    .icon{
+      width:36px;
+      height:36px;
+      border-radius:8px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#f4f7fb;
+      border:1px solid rgba(14,34,50,0.03);
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:920px){
+      .controls{gap:8px}
+      .search{flex-basis:100%}
+      table{min-width:640px}
+    }
+
+    @media (max-width:640px){
+      .wrap{padding:16px;margin:20px auto}
+      .heading h1{font-size:28px}
+      thead th:nth-child(3), tbody td:nth-child(3){display:none} /* hide small cols */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="heading">
+      <h1>Manage Sellers</h1>
+      <p>Manage all sellers in one place. Control status, assign labels, and monitor activity across your platform.</p>
+    </div>
+
+    <div class="card">
+      <!-- controls -->
+      <div class="controls">
+        <div class="search" aria-label="Search sellers">
+          <span style="opacity:.6">🔍</span>
+          <input type="text" placeholder="Search sellers, store or email" />
+        </div>
+
+        <select class="select" aria-label="Filter by status">
+          <option value="">Status</option>
+          <option>Active</option>
+          <option>Pending</option>
+          <option>Suspended</option>
+          <option>Banned</option>
+          <option>Inactive</option>
+        </select>
+
+        <select class="select" aria-label="Filter by label">
+          <option value="">Label</option>
+          <option>Top Seller</option>
+          <option>New</option>
+          <option>Verified</option>
+          <option>Premium</option>
+          <option>Flagged</option>
+        </select>
+
+        <select class="select" aria-label="Time range (All Time)">
+          <option>All Time</option>
+          <option>Today</option>
+          <option>Yesterday</option>
+          <option>Last 7 Days</option>
+          <option>Last 14 Days</option>
+          <option>Last 30 Days</option>
+          <option>Last 90 Days</option>
+          <option>This Month</option>
+          <option>Last Month</option>
+          <option>Custom Range…</option>
+        </select>
+
+        <button class="btn-primary" title="Add Seller">+ Add Seller</button>
+      </div>
+
+      <!-- table -->
+      <div class="table-wrap">
+        <table role="table" aria-label="Sellers table">
+          <thead>
+            <tr>
+              <th style="width:36px"></th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Label</th>
+              <th style="width:120px;text-align:right">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><input type="checkbox" aria-label="select seller" /></td>
+              <td>
+                <div class="seller-cell">
+                  <div class="avatar">JW</div>
+                  <div class="meta">
+                    <div class="name">Jenny Wilson</div>
+                    <div class="role">Owner • Joined 02 Feb 2024</div>
+                  </div>
+                </div>
+              </td>
+
+              <td>jenny.wilson@mail.com</td>
+              <td><span class="badge active">Active</span></td>
+              <td><span class="badge new">New</span></td>
+              <td class="actions">
+                <button class="icon" title="Edit">✏</button>
+                <button class="icon" title="Message">✉</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="seller-cell">
+                  <div class="avatar" style="background:linear-gradient(135deg,#ffd7c2,#ffd9a8)">KW</div>
+                  <div class="meta">
+                    <div class="name">Kristin Watson</div>
+                    <div class="role">Owner • Verified</div>
+                  </div>
+                </div>
+              </td>
+
+              <td>kristin.watson@mail.com</td>
+              <td><span class="badge suspended">Suspended</span></td>
+              <td><span class="badge inactive">Inactive</span></td>
+              <td class="actions">
+                <button class="icon" title="View">🔍</button>
+                <button class="icon" title="Delete">🗑</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="seller-cell">
+                  <div class="avatar">CF</div>
+                  <div class="meta">
+                    <div class="name">Cody Fisher</div>
+                    <div class="role">Owner • Top-rated</div>
+                  </div>
+                </div>
+              </td>
+
+              <td>cody.fisher@mail.com</td>
+              <td><span class="badge inactive">Inactive</span></td>
+              <td><span class="badge active">Active</span></td>
+              <td class="actions">
+                <button class="icon" title="Approve">✔</button>
+                <button class="icon" title="Message">✉</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="seller-cell">
+                  <div class="avatar" style="background:#e6eef8;color:#0b63a5">AF</div>
+                  <div class="meta">
+                    <div class="name">Albert Flores</div>
+                    <div class="role">Vendor</div>
+                  </div>
+                </div>
+              </td>
+
+              <td>albert.flores@mail.com</td>
+              <td><span class="badge active">Active</span></td>
+              <td><span class="badge">Top Seller</span></td>
+              <td class="actions">
+                <button class="icon" title="Edit">✏</button>
+                <button class="icon" title="Suspend">⛔</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="seller-cell">
+                  <div class="avatar" style="background:#111827;color:#fff">RF</div>
+                  <div class="meta">
+                    <div class="name">Robert Fox</div>
+                    <div class="role">Vendor</div>
+                  </div>
+                </div>
+              </td>
+
+              <td>robert.fox@mail.com</td>
+              <td><span class="badge banned">Banned</span></td>
+              <td><span class="badge banned">Banned</span></td>
+              <td class="actions">
+                <button class="icon" title="View">🔍</button>
+                <button class="icon" title="Delete">🗑</button>
+              </td>
+            </tr>
+
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

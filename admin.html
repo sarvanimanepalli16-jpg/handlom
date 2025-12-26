@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <style>
+        body {
+    margin: 0;
+    background: #fff7e8;
+    font-family: Georgia, serif;
+}
+
+header {
+    background: #deb887;
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+    color: #2f2f2f;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #2f2f2f;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>Admin Dashboard</h2>
+</header>
+
+<div class="container">
+    <div class="grid">
+
+        <a href="admin-users.html" class="card">
+            <h3>Manage Users</h3>
+            <p>View, block, edit buyer accounts</p>
+        </a>
+
+        <a href="admin-sellers.html" class="card">
+            <h3>Manage Sellers</h3>
+            <p>Approve sellers, verify shops</p>
+        </a>
+
+        <a href="admin-products.html" class="card">
+            <h3>Manage Products</h3>
+            <p>Approve, remove, or edit listings</p>
+        </a>
+
+        <a href="admin-orders.html" class="card">
+            <h3>Manage Orders</h3>
+            <p>Monitor all purchases and delivery updates</p>
+        </a>
+
+        <a href="admin-payments.html" class="card">
+            <h3>Payments</h3>
+            <p>Track seller payouts & commissions</p>
+        </a>
+
+        <a href="admin-reports.html" class="card">
+            <h3>Reports & Analytics</h3>
+            <p>View sales & performance analytics</p>
+        </a>
+
+        <a href="admin-categories.html" class="card">
+            <h3>Manage Categories</h3>
+            <p>Add or organize product categories</p>
+        </a>
+
+        <a href="admin-complaints.html" class="card">
+            <h3>Complaints</h3>
+            <p>Handle buyer & seller issues</p>
+        </a>
+
+        <a href="admin-settings.html" class="card">
+            <h3>Platform Settings</h3>
+            <p>Control platform-wide settings</p>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Product - Seller Panel</title>
+    <link rel="stylesheet" href="upload.css" />
+    <style>
+ body {
+    margin: 0;
+    padding: 0;
+    background: #fff7e8;
+    font-family: "Georgia", serif;
+}
+
+.container {
+    width: 450px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffffce;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 20px #e6d5be;
+}
+
+h1 {
+    color: #222f3e;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #3c3c3c;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    font-size: 17px;
+    color: #222f3e;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0 20px;
+    border: 1px solid #d5c7b3;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+.upload-btn {
+    width: 100%;
+    padding: 14px;
+    background: #e6c8a3;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    color: #222f3e;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background: #d9b68c;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    input, select, textarea {
+        padding: 12px;
+    }
+
+    .upload-btn {
+        padding: 12px;
+        font-size: 18px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload New Product</h1>
+        <p class="subtitle">Add your handloom product details below</p>
+
+        <form>
+
+            <label>Product Name</label>
+            <input type="text" placeholder="Enter product name" required>
+
+            <label>Category</label>
+            <select required>
+                <option value="">Select category</option>
+                <option>Saree</option>
+                <option>Shawl</option>
+                <option>Kurta</option>
+                <option>Duppata</option>
+                <option>Fabric</option>
+            </select>
+
+            <label>Price (₹)</label>
+            <input type="number" placeholder="Enter price" required>
+
+            <label>Description</label>
+            <textarea placeholder="Write product details..." required></textarea>
+
+            <label>Upload Product Image</label>
+            <input type="file" accept="image/*" required>
+
+            <button type="submit" class="upload-btn">Upload Product</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(Handwoven\ Gadwa\ Silk\ Cotton\ Sari\ in\ Maroon…\ copy.jpeg);
+        }
+
+        /* Box container for the login form */
+        .box {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            font-style: italic;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        fieldset {
+            border: 2px solid #777;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: brown;
+            color: white;
+            font-size: larger;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: darkred;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .create-btn {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Login</h1>
+        <form>
+            <fieldset>
+                <label for="EMAIL">Email</label><br>
+                <input type="email" placeholder="Email" required><br>
+
+                <label for="Password">Password</label><br>
+                <input type="password" required><br><br>
+
+                <input type="submit" value="Login"><br><br>
+            </fieldset>
+            <div class="create-btn">
+                <p>If not have an acc then sign in know!!</p>
+                <a href="bb.html">
+                    <input type="button" value="Signin">
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

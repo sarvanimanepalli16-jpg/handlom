@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoSwadeshi | Handloom Fashion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{
+      background-image: url();
+    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Top bar */
+.top-bar {
+  background-color: #800020;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #800020;
+}
+.logo span {
+  color: #b71c1c;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  text-transform: capitalize;
+  transition: color 0.3s;
+}
+.navbar a:hover {
+  color: #800020;
+}
+
+.icons a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #800020;
+  font-size: 18px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(
+      rgba(128, 0, 32, 0.7),
+      rgba(128, 0, 32, 0.7)
+    ),
+    url('https://images.unsplash.com/photo-1608974227235-92f83a0b7e34?auto=format&fit=crop&w=1350&q=80')
+      center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+}
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  line-height: 1.5;
+}
+.hero button {
+  background-color: #fff;
+  color: #800020;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.hero button:hover {
+  background-color: #f4f4f4;
+}
+
+/* Info Section */
+.info {
+  background-color: #fafafa;
+  text-align: center;
+  padding: 60px 20px;
+}
+.info h2 {
+  color: #800020;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+.info p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #444;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background-color: #800020;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+}
+ .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 20px;
+      padding: 0 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="top-bar">
+        use <strong>GoSwadeshi</strong>to get 5%off on your first order
+    </div>
+
+  <header class="navbar">
+    <div class="logo">go<span>swadeshi</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">sarees</a></li>
+        <li><a href="#">fabrics</a> </li>
+        <li><a href="#">apparel</a></li>
+        <li><a href="#">accessories</a></li>
+        <li><a href="#">home décor</a></li>
+        <li><a href="#">new this week</a></li>
+      </ul>
+    </nav>
+    <div class="icons">
+      <a href="#">👤</a>
+      <a href="#">🔍</a>
+      <a href="#">🛒</a>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Every Saree Has a Story</h1>
+      <p>
+        This festive season, explore a range of authentic handloom sarees
+        featuring weaves from across the country.
+      </p>
+      <button>Shop Now</button>
+    </div>
+  </section>
+
+  <section class="info">
+    <h2>Handpicked collections, shipped in 24 hour</h2>
+    <p>
+      Experience the joy of effortless shopping with handpicked collections —
+      slow-crafted by skilled artisans, thoughtfully curated, yet delivered
+      with express speed. Each piece is ready to ship within 24 hours, ensuring
+      your order reaches you swiftly.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 GoSweshi | adCelebrating Indian Handlooms</p>
+  </footer>
+</body>
+</html>

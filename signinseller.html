@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff7e8;
+    font-family: "Georgia", serif;
+}
+
+.container {
+    width: 400px;
+    margin: 60px auto;
+    padding: 25px;
+    text-align: center;
+    background: #ffffffc7;
+    border-radius: 16px;
+    box-shadow: 0 0 20px #f1e0c8;
+}
+
+h1 {
+    font-size: 36px;
+    color: #222f3e;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #3c3c3c;
+    margin-bottom: 30px;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    font-size: 17px;
+    color: #222f3e;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0 20px;
+    border: 1px solid #d5c7b3;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #e6c8a3;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    color: #222f3e;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #d9b68c;
+}
+
+.login-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.login-text a {
+    color: #222f3e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        margin-top: 30px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .login-btn {
+        padding: 12px;
+        font-size: 18px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Create Seller Account</h1>
+        <p class="subtitle">Join us to start selling handloom products</p>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter your phone number" required>
+
+            <label>Password</label>
+            <input type="password" placeholder="Create a password" required>
+
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Re-enter password" required>
+
+            <button type="submit" class="login-btn">Sign Up</button>
+
+            <p class="login-text">
+                Already have an account? 
+                <a href="login.html">Login</a>
+            </p>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

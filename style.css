@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  background: #fafafa;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 5%;
+  background: #800020;
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: #f3e5e5;
+}
+
+.hero button {
+  padding: 10px 25px;
+  margin-top: 15px;
+}
+
+/* FILTERS */
+.filters {
+  text-align: center;
+  padding: 30px;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px 5%;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.card button {
+  margin-top: 10px;
+  background: #800020;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+/* CONTACT */
+.contact {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}

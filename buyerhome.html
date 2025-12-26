@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Home</title>
+<link rel="stylesheet" href="buyer-style.css">
+<style>
+   body {
+    margin: 0;
+    background: #fff7e8;
+    font-family: Georgia, serif;
+}
+.nav{
+     display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%;
+  background-color: #d8c3a8;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+}
+.nav:button{
+    padding: 12px;
+}
+
+header {
+    background: #e6c8a3;
+    text-align: center;
+    font-size: 28px;
+    color: #222f3e;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #ffffffd0;
+    padding: 25px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #222f3e;
+    box-shadow: 0px 2px 10px #e6d5be;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 12px #d8c3a8;
+}
+
+.icon {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+
+    .icon {
+        width: 55px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <nav class="nav">
+        <header><h2>Buyer Home</h2></header>
+        <button> <a href="buyerlogin.html">login</a> </button>
+    </nav>
+
+<div class="container">
+
+    <div class="grid">
+
+        <a href="buyerprofile.html" class="card">
+            <h3>My Profile</h3>
+            <p>View & update personal details</p>
+        </a>
+        
+
+        <a href="buyeradreass.html" class="card">
+            <h3>My Addresses</h3>
+            <p>Manage home & work addresses</p>
+        </a>
+
+        <a href="buyerorder.html" class="card">
+            <h3>My Orders</h3>
+            <p>Track and view all purchases</p>
+        </a>
+
+        <a href="buyerwishlist.html" class="card">
+            <h3>Wishlist</h3>
+            <p>Saved items</p>
+        </a>
+
+        <a href="buyercart.html" class="card">
+            <h3>Cart</h3>
+            <p>Items waiting for checkout</p>
+        </a>
+
+        <a href="nuyerseetings.html" class="card">
+            <h3>Settings</h3>
+            <p>Password & notifications</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

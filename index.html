@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pavora Sarees</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <h2 class="logo">Pavora</h2>
+  <nav>
+    <a href="#sarees">Sarees</a>
+    <a href="#fabrics">Fabrics</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="cart">
+    🛒 <span id="cartCount">0</span>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Every Saree Has a Story</h1>
+  <p>Discover handloom sarees from across India</p>
+  <button>Shop Now</button>
+</section>
+
+<section class="filters" id="fabrics">
+  <h2>Shop by Fabric</h2>
+  <button onclick="filterFabric('all')">All</button>
+  <button onclick="filterFabric('silk')">Silk</button>
+  <button onclick="filterFabric('cotton')">Cotton</button>
+  <button onclick="filterFabric('chiffon')">Chiffon</button>
+</section>
+
+<!-- SAREE PRODUCTS -->
+<section class="products" id="sarees">
+
+  <div class="card" data-fabric="silk" data-price="4500">
+    <h3>Banarasi Silk Saree</h3>
+    <p>₹4500</p>
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+
+  <div class="card" data-fabric="cotton" data-price="2000">
+    <h3>Cotton Handloom Saree</h3>
+    <p>₹2000</p>
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+
+  <div class="card" data-fabric="chiffon" data-price="3000">
+    <h3>Chiffon Party Saree</h3>
+    <p>₹3000</p>
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+
+</section>
+
+<!-- PRICE FILTER -->
+<section class="filters">
+  <h2>Filter by Price</h2>
+  <input type="range" min="1000" max="5000" value="5000" oninput="filterPrice(this.value)">
+  <p>Max Price: ₹<span id="priceValue">5000</span></p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: pavora@sarees.com</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

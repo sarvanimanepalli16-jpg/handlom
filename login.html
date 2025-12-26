@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Handloom — Login</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f6f2e9;
+      --card: #fff;
+      --accent: #5d4a2f;    /* royal brown */
+      --muted: #8c7b64;
+      --soft: #e8dfcf;
+      --danger: #b85c5c;
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, Arial;
+      background: linear-gradient(180deg, #f9f6f0 0%, #f3efe6 100%);
+      color: #222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .container{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+    }
+
+    /* Left - branding / hero */
+    .hero{
+      background: linear-gradient(180deg, rgba(93,74,47,0.04), rgba(93,74,47,0.02));
+      border-radius: var(--radius);
+      padding:36px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      box-shadow: 0 8px 30px rgba(14,10,6,0.06);
+    }
+
+    .logo{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo .mark{
+      width:56px;
+      height:56px;
+      background: linear-gradient(135deg,#f5dfb7,#e1c89b);
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--accent);
+      font-family:'Playfair Display', serif;
+      box-shadow: 0 2px 8px rgba(93,74,47,0.08) inset;
+    }
+    .logo h1{
+      margin:0;
+      font-family:'Playfair Display', serif;
+      color:var(--accent);
+      font-size:20px;
+      letter-spacing:1px;
+    }
+    .logo p{ margin:0; color:var(--muted); font-size:13px; }
+
+    .hero h2{
+      font-family:'Playfair Display', serif;
+      margin:6px 0 0 0;
+      color:var(--accent);
+      font-size:34px;
+      line-height:1.05;
+    }
+
+    .hero p.lead{
+      margin:0;
+      color:#4a4034;
+      max-width:60%;
+      font-size:15px;
+    }
+
+    .preview-grid{
+      margin-top:auto;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .swatch{
+      background:var(--card);
+      border-radius:12px;
+      padding:10px;
+      width:84px;
+      height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 6px 18px rgba(14,10,6,0.04);
+      font-family:'Playfair Display', serif;
+      color:var(--accent);
+      font-size:12px;
+    }
+
+    /* Right - login card */
+    .card{
+      background:var(--card);
+      border-radius: var(--radius);
+      padding:26px;
+      box-shadow: 0 10px 30px rgba(14,10,6,0.06);
+    }
+
+    .role-tabs{
+      display:flex;
+      gap:8px;
+      margin-bottom:18px;
+    }
+    .role-btn{
+      flex:1;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid transparent;
+      background:transparent;
+      cursor:pointer;
+      font-weight:600;
+      color:var(--muted);
+      transition:all .18s;
+    }
+    .role-btn.active{
+      background: linear-gradient(180deg,var(--soft), #fff);
+      color:var(--accent);
+      border:1px solid rgba(93,74,47,0.08);
+      box-shadow: 0 6px 18px rgba(93,74,47,0.05) inset;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    label{ font-size:13px; color:var(--muted); font-weight:600; }
+
+    .input{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:#fff;
+      border-radius:10px;
+      border:1px solid #ece3d6;
+      padding:10px 12px;
+    }
+    .input input{
+      border:0;
+      outline:0;
+      font-size:14px;
+      width:100%;
+      background:transparent;
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .checkbox{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      padding:12px 14px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      font-size:15px;
+      box-shadow: 0 8px 24px rgba(93,74,47,0.12);
+    }
+
+    .link {
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:13px;
+    }
+
+    .or {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:13px;
+      margin:6px 0 2px;
+    }
+    .or:before, .or:after{
+      content:"";
+      height:1px;
+      background:#efe7db;
+      flex:1;
+      border-radius:2px;
+    }
+
+    .socials{
+      display:flex;
+      gap:10px;
+      margin-top:6px;
+    }
+    .social{
+      flex:1;
+      border-radius:10px;
+      padding:10px;
+      border:1px solid #efe7db;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      background:#fff;
+      font-weight:600;
+      color:var(--muted);
+    }
+
+    .note{
+      margin-top:12px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* small screens */
+    @media (max-width:880px){
+      .container{ grid-template-columns: 1fr; max-width:700px; padding:0 12px; }
+      .hero{ order:2 }
+      .card{ order:1; }
+      .hero h2{ font-size:28px }
+      .hero p.lead{ max-width:100% }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero" aria-hidden="false">
+      <div class="logo">
+        <div class="mark">HL</div>
+        <div>
+          <h1>PAVORA</h1>
+          <p>Royal handwoven marketplace</p>
+        </div>
+      </div>
+
+      <h2>Welcome back — sign in to your account</h2>
+      <p class="lead">Access your dashboard to manage products, view orders, and connect with customers. Choose your role to continue — Admin, Seller or Buyer.</p>
+
+      <div class="preview-grid" aria-hidden="true">
+        <div class="swatch">Silk</div>
+        <div class="swatch">Cotton</div>
+        <div class="swatch">Loom</div>
+        <div class="swatch">Heritage</div>
+      </div>
+    </div>
+
+    <div class="card" role="region" aria-label="Login panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <strong style="font-family:'Playfair Display', serif; color:var(--accent); font-size:20px;">Sign In</strong>
+        <a class="link" href="#">Need help?</a>
+      </div>
+
+      
+      <div class="role-tabs" role="tablist" aria-label="User role">
+        <button class="role-btn active" data-role="admin" role="tab" aria-selected="true">Admin</button>
+        <button class="role-btn" data-role="seller" role="tab" aria-selected="false">Seller</button>
+        <button class="role-btn" data-role="buyer" role="tab" aria-selected="false">Buyer</button>
+      </div>
+
+      
+      <form id="loginForm" novalidate>
+        <div>
+          <label for="email">Email</label>
+          <div class="input">
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <div class="input">
+            <input id="password" name="password" type="password" placeholder="Enter your password" minlength="6" required>
+            <button type="button" id="togglePwd" title="Show password" style="background:none;border:0;cursor:pointer;color:var(--muted);font-weight:700">Show</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="checkbox"><input id="remember" type="checkbox"> Keep me logged in</label>
+          <a class="link" href="#" id="forgot">Forgot password?</a>
+        </div>
+
+        <input type="hidden" id="roleInput" name="role" value="admin">
+
+        <button class="btn-primary" type="submit">Sign in</button>
+
+        <div class="or" aria-hidden="true">or continue with</div>
+
+        <div class="socials" aria-hidden="true">
+          <div class="social">Google</div>
+          <div class="social">Facebook</div>
+          <div class="social">Phone</div>
+        </div>
+
+        <div class="note">
+          Don't have an account? <a class="link" href="#">Create an account</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    
+    const tabs = document.querySelectorAll('.role-btn');
+    const roleInput = document.getElementById('roleInput');
+    tabs.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tabs.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        roleInput.value = btn.dataset.role || 'admin';
+      });
+    });
+
+    
+    const pwd = document.getElementById('password');
+    const toggle = document.getElementById('togglePwd');
+    toggle.addEventListener('click', ()=>{
+      if (pwd.type === 'password'){ pwd.type = 'text'; toggle.textContent = 'Hide'; }
+      else { pwd.type = 'password'; toggle.textContent = 'Show'; }
+    });
+
+
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      
+      const email = document.getElementById('email');
+      const password = pwd;
+      if (!email.value || !password.value){
+        alert('Please enter both email and password.');
+        return;
+      }
+      if (password.value.length < 6){
+        alert('Password must be at least 6 characters.');
+        return;
+      }
+
+      
+      const role = roleInput.value;
+      alert('Signing in as ' + role + ' — (this is a demo front-end page).');
+
+    
+    });
+
+    window.addEventListener('load', ()=> document.getElementById('email').focus());
+  </script>
+</body>
+</html>

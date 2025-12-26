@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Dashboard</title>
+<link rel="stylesheet" href="seller-style.css">
+<style>
+    body {
+    margin: 0;
+    background: #fff7e8;
+    font-family: Georgia, serif;
+}
+
+header {
+    background: #e6c8a3;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    color: #222f3e;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.card {
+    background: #ffffffd0;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0px 2px 10px #e6d5be;
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbbba5;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.btn {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    background: #e6c8a3;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background: #e6c8a3;
+    padding: 10px;
+    text-align: left;
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #dbc8a7;
+}
+
+.thumb {
+    width: 60px;
+    border-radius: 10px;
+}
+
+.edit {
+    background: #b8d8b8;
+    border: none;
+    padding: 5px 10px;
+}
+
+.delete {
+    background: #e8a3a3;
+    border: none;
+    padding: 5px 10px;
+}
+
+.earn-box {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.earn-item {
+    background: #e6d5be;
+    padding: 20px;
+    width: 30%;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .profile-grid { grid-template-columns: 1fr; }
+    .earn-box { flex-direction: column; gap: 15px; }
+    .earn-item { width: 100%; }
+}
+
+</style>
+</head>
+
+<body>
+<header><h2>Dashboard</h2></header>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Overview</h3>
+        <div class="earn-box">
+            <div class="earn-item"><h4>120</h4><p>Products</p></div>
+            <div class="earn-item"><h4>43</h4><p>Orders</p></div>
+            <div class="earn-item"><h4>₹24,500</h4><p>Earnings</p></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Recent Orders</h3>
+        <table>
+            <tr>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+            <tr>
+                <td>Aarav</td>
+                <td>Shawl</td>
+                <td>Delivered</td>
+                <td>20 Nov 2025</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
